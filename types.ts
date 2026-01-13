@@ -5,7 +5,7 @@ export type DisplayType = 'markdown' | 'table' | 'matrix' | 'recipe_card' | 'sco
 
 export interface Artifact {
   id: string;
-  role: 'Extractor' | 'Profiler' | 'Copywriter' | 'Architect' | 'Judge';
+  role: 'Extractor' | 'Profiler' | 'Copywriter' | 'Architect' | 'Judge' | 'CompetitorAnalyzer';
   title: string;
   content: string;
   summary: string;
@@ -13,6 +13,7 @@ export interface Artifact {
   version: number;
   displayType: DisplayType;
   structuredData?: any; 
+  tokens?: number;
 }
 
 export interface ProjectSession {
@@ -24,4 +25,6 @@ export interface ProjectSession {
   status: 'idle' | 'running' | 'completed';
   timestamp: number;
   score?: number; // Michelin Star rating (1-3)
+  totalTokens?: number;
+  totalCost?: number; // In Euro
 }
